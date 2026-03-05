@@ -389,6 +389,13 @@
         map.on("layerremove", function(){
             resetLabels([layer_output5AssentamentoBrasiljson_2]);
         });
+			fetch('data/rodovias_federais_brasil.geojson') // Ajusta el nombre si es diferente
+    .then(res => res.json())
+    .then(data => {
+        L.geoJSON(data, {
+            style: { color: 'red', weight: 2 }
+        }).addTo(map);
+    });
         </script>
     </body>
 </html>
